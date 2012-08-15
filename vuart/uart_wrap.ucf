@@ -1,0 +1,32 @@
+// Digilent CoolRunner II Starter Board
+
+// clock
+NET "clk" LOC="38";
+
+// buttons
+NET "nrst" LOC="143";	 // BTN0
+NET "ntransmit" LOC="94"; // BTN1
+
+// data
+NET "rx" 		LOC="10"; // J1-IO1
+NET "tx" 		LOC="7";  // J1-IO2
+
+// diode
+NET "received" LOC="69";	// LD0
+
+// led display
+// dp g f e d c b a
+NET "led_disp<7>" LOC="59";
+NET "led_disp<6>" LOC="61";
+NET "led_disp<5>" LOC="54";
+NET "led_disp<4>" LOC="57";
+NET "led_disp<3>" LOC="58";
+NET "led_disp<2>" LOC="60";
+NET "led_disp<1>" LOC="53";
+NET "led_disp<0>" LOC="56";
+
+// from left to right
+NET "led_disp_cc<3>"	LOC="130";
+NET "led_disp_cc<2>"	LOC="129";
+NET "led_disp_cc<1>"	LOC="128";
+NET "led_disp_cc<0>"	LOC="126";
