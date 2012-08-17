@@ -34,15 +34,23 @@ module uart_wrap(
     );
 
 wire rst;
-wire transmit;
+reg transmit;
+wire is_transmitting;
 wire [7:0] tx_byte;
 
 assign rst = ~nrst;
-assign transmit = ~ntransmit;
+//assign transmit = ~ntransmit;
 
 assign led_disp_cc[3:0] = 4'b1110;
 assign tx_byte[7:0] = 8'b11001100;
 
+
+always @(negedge ntransmit or posedge is_transmitting)
+	if(is_transmitting)
+		transmit = 1'b0;
+	else
+		transmit = 1'b1;
+	
 
  // instantinate uart module
 uart uart1(
@@ -53,7 +61,8 @@ uart uart1(
 	.transmit(transmit),
 	.received(received),
 	.rx_byte(led_disp),
-	.tx_byte(tx_byte)
+	.tx_byte(tx_byte),
+	.is_transmitting(is_transmitting)
 	);
 
 endmodule
